@@ -1,0 +1,499 @@
+{
+    "connectors": {
+      "Table": [
+        {
+          "resourceName": "FINANCIALS", 
+          "target": "FINANCIALS,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Lasr Data/FINANCIALS(Table)"
+        }, 
+        {
+          "resourceName": "FIN_SOUTH", 
+          "target": "FIN_SOUTH,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Lasr Data/FIN_SOUTH(Table)"
+        }, 
+        {
+          "resourceName": "FInancialGEO2009", 
+          "target": "FInancialGEO2009,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Lasr Data/FInancialGEO2009(Table)"
+        }, 
+        {
+          "resourceName": "FINANCIALS", 
+          "target": "FINANCIALS,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Source Data/FINANCIALS(Table)"
+        }, 
+        {
+          "resourceName": "PROFIT", 
+          "target": "PROFIT,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Source Data/PROFIT(Table)"
+        }, 
+        {
+          "resourceName": "Summary Statistics_OUTPUT0", 
+          "target": "Summary_Stats_DI,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Source Data/Summary Statistics_OUTPUT0(Table)"
+        }, 
+        {
+          "resourceName": "Profit Concessions", 
+          "target": "Profit_Concessions,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Source Data/Profit Concessions(Table)"
+        }, 
+        {
+          "resourceName": "PROFIT_ALL", 
+          "target": "PROFIT_ALL,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Source Data/PROFIT_ALL(Table)"
+        }, 
+        {
+          "resourceName": "Profit Marketing", 
+          "target": "Profit_Marketing,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Source Data/Profit Marketing(Table)"
+        }, 
+        {
+          "resourceName": "Finance_Product_Sum", 
+          "target": "Finance_Product_Q_SUM,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Target Data/Finance_Product_Sum(Table)"
+        }, 
+        {
+          "resourceName": "Novelty_Summary", 
+          "target": "Novelty_Summary,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Target Data/Novelty_Summary(Table)"
+        }, 
+        {
+          "resourceName": "Toy Summary", 
+          "target": "Toy_Summary,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Target Data/Toy Summary(Table)"
+        }, 
+        {
+          "resourceName": "LOSS_MAKERS", 
+          "target": "LOSS_MAKERS,Financial Data,cas-shared-default", 
+          "source": "/gelcorp/financecontent/Data/Lasr Data/LOSS_MAKERS(Table)"
+        }
+      ], 
+      "User": [
+        {
+          "resourceName": "*[@Name='Ahmed']", 
+          "target": "Ahmed", 
+          "source": "Ahmed"
+        }, 
+        {
+          "resourceName": "*[@Name='Alex']", 
+          "target": "Alex", 
+          "source": "Alex"
+        }, 
+        {
+          "resourceName": "*[@Name='Amanda']", 
+          "target": "Amanda", 
+          "source": "Amanda"
+        }, 
+        {
+          "resourceName": "*[@Name='Delilah']", 
+          "target": "delilah", 
+          "source": "Delilah"
+        }, 
+        {
+          "resourceName": "*[@Name='Detlef']", 
+          "target": "Detlef", 
+          "source": "Detlef"
+        }, 
+        {
+          "resourceName": "*[@Name='Douglas']", 
+          "target": "douglas", 
+          "source": "Douglas"
+        }, 
+        {
+          "resourceName": "*[@Name='Fay']", 
+          "target": "Fay", 
+          "source": "Fay"
+        }, 
+        {
+          "resourceName": "*[@Name='Fernanda']", 
+          "target": "Fernanda", 
+          "source": "Fernanda"
+        }, 
+        {
+          "resourceName": "*[@Name='Fiona']", 
+          "target": "Fiona", 
+          "source": "Fiona"
+        }, 
+        {
+          "resourceName": "*[@Name='Frank']", 
+          "target": "Frank", 
+          "source": "Frank"
+        }, 
+        {
+          "resourceName": "*[@Name='Fred']", 
+          "target": "Fred", 
+          "source": "Fred"
+        }, 
+        {
+          "resourceName": "*[@Name='Hamish']", 
+          "target": "Hamish", 
+          "source": "Hamish"
+        }, 
+        {
+          "resourceName": "*[@Name='Hazel']", 
+          "target": "Hazel", 
+          "source": "Hazel"
+        }, 
+        {
+          "resourceName": "*[@Name='Heather']", 
+          "target": "Heather", 
+          "source": "Heather"
+        }, 
+        {
+          "resourceName": "*[@Name='Helena']", 
+          "target": "Helena", 
+          "source": "Helena"
+        }, 
+        {
+          "resourceName": "*[@Name='Henrik']", 
+          "target": "Henrik", 
+          "source": "Henrik"
+        }, 
+        {
+          "resourceName": "*[@Name='Hugh']", 
+          "target": "Hugh", 
+          "source": "Hugh"
+        }, 
+        {
+          "resourceName": "*[@Name='LASR Administrator']", 
+          "target": "saslasradm", 
+          "source": "LASR Administrator"
+        }, 
+        {
+          "resourceName": "*[@Name='Sally']", 
+          "target": "Sally", 
+          "source": "Sally"
+        }, 
+        {
+          "resourceName": "*[@Name='Sarah']", 
+          "target": "Sarah", 
+          "source": "Sarah"
+        }, 
+        {
+          "resourceName": "*[@Name='sasadm']", 
+          "target": "dbmsowner", 
+          "source": "sasadm"
+        }, 
+        {
+          "resourceName": "*[@Name='sasevs']", 
+          "target": "sasevdb", 
+          "source": "sasevs"
+        }, 
+        {
+          "resourceName": "*[@Name='Sasha']", 
+          "target": "Sasha", 
+          "source": "Sasha"
+        }, 
+        {
+          "resourceName": "*[@Name='sastrust']", 
+          "target": "LASRSecurityKey sasclient.race.sas.com:10011A5ELUBD6.AY00000E", 
+          "source": "sastrust"
+        }, 
+        {
+          "resourceName": "*[@Name='Sean']", 
+          "target": "Sean", 
+          "source": "Sean"
+        }, 
+        {
+          "resourceName": "*[@Name='Sheldon']", 
+          "target": "Sheldon", 
+          "source": "Sheldon"
+        }, 
+        {
+          "resourceName": "*[@Name='Sophia']", 
+          "target": "Sophia", 
+          "source": "Sophia"
+        }, 
+        {
+          "resourceName": "*[@Name='Student']", 
+          "target": "student", 
+          "source": "Student"
+        }
+      ], 
+      "UserGroup": [
+        {
+          "resourceName": "*[@Name='Finance']", 
+          "target": "Finance", 
+          "source": "Finance"
+        }, 
+        {
+          "resourceName": "*[@Name='Finance Consumers']", 
+          "target": "Finance Consumers", 
+          "source": "Finance Consumers"
+        }, 
+        {
+          "resourceName": "*[@Name='Finance Content Developers']", 
+          "target": "Finance Content Developers", 
+          "source": "Finance Content Developers"
+        }, 
+        {
+          "resourceName": "*[@Name='Finance Data Managers']", 
+          "target": "Finance Data Managers", 
+          "source": "Finance Data Managers"
+        }, 
+        {
+          "resourceName": "*[@Name='GELCorp Users']", 
+          "target": "GELCorp Users", 
+          "source": "GELCorp Users"
+        }, 
+        {
+          "resourceName": "*[@Name='HR']", 
+          "target": "HR", 
+          "source": "HR"
+        }, 
+        {
+          "resourceName": "*[@Name='HR Consumers']", 
+          "target": "HR Consumers", 
+          "source": "HR Consumers"
+        }, 
+        {
+          "resourceName": "*[@Name='HR Content Developers']", 
+          "target": "HR Content Developers", 
+          "source": "HR Content Developers"
+        }, 
+        {
+          "resourceName": "*[@Name='HR Data Managers']", 
+          "target": "HR Data Managers", 
+          "source": "HR Data Managers"
+        }, 
+        {
+          "resourceName": "*[@Name='Sales']", 
+          "target": "Sales", 
+          "source": "Sales"
+        }, 
+        {
+          "resourceName": "*[@Name='Sales Consumers']", 
+          "target": "Sales Consumers", 
+          "source": "Sales Consumers"
+        }, 
+        {
+          "resourceName": "*[@Name='Sales Content Developers']", 
+          "target": "Sales Content Developers", 
+          "source": "Sales Content Developers"
+        }, 
+        {
+          "resourceName": "*[@Name='Sales Data Managers']", 
+          "target": "Sales Data Managers", 
+          "source": "Sales Data Managers"
+        }, 
+        {
+          "resourceName": "*[@Name='SASAdministrators']", 
+          "target": "SASAdministrators", 
+          "source": "SASAdministrators"
+        }, 
+        {
+          "resourceName": "*[@Name='Visual Analytics Data Administrators']", 
+          "target": "Visual Analytics Data Administrators", 
+          "source": "Visual Analytics Data Administrators"
+        }, 
+        {
+          "resourceName": "*[@Name='Visual Analytics Users']", 
+          "target": "Visual Analytics Users", 
+          "source": "Visual Analytics Users"
+        }, 
+        {
+          "resourceName": "*[@Name='Visual Data Builder Administrators']", 
+          "target": "Visual Data Builder Administrators", 
+          "source": "Visual Data Builder Administrators"
+        }
+      ]
+    }, 
+    "version": 1, 
+    "substitutions": [
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B0000005", 
+        "properties": [
+          {
+            "value": "LASRAuth", 
+            "name": "LASRAuthDomain"
+          }, 
+          {
+            "value": "sasclient.race.sas.com", 
+            "name": "LASRHost"
+          }, 
+          {
+            "value": "10014", 
+            "name": "LASRPort"
+          }
+        ], 
+        "resourceName": "Connection: HR - LASR Server"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.AC0002F4", 
+        "properties": [
+          {
+            "value": "http://sasclient.race.sas.com:80/SASLASRAuthorization", 
+            "name": "SIGNER"
+          }
+        ], 
+        "resourceName": "LASR"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B0000003", 
+        "properties": [
+          {
+            "value": "LASRAuth", 
+            "name": "LASRAuthDomain"
+          }, 
+          {
+            "value": "sasclient.race.sas.com", 
+            "name": "LASRHost"
+          }, 
+          {
+            "value": "10011", 
+            "name": "LASRPort"
+          }
+        ], 
+        "resourceName": "Connection: LASR Analytic Server - sasclient"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B400000S", 
+        "properties": [
+          {
+            "value": "/gelcontent/gelcorp/sales/reportingdata", 
+            "name": "DirPath"
+          }, 
+          {
+            "value": "cas-shared-default", 
+            "name": "CASServer"
+          }, 
+          {
+            "value": "CAS, Compute", 
+            "name": "ImportTargetEnvs"
+          }, 
+          {
+            "value": "SAS Studio compute context, SAS Job Execution compute context", 
+            "name": "ComputeContexts"
+          }
+        ], 
+        "resourceName": "Sales Reporting Library"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B400000N", 
+        "properties": [
+          {
+            "value": "/gelcontent/gelcorp/sales/data", 
+            "name": "DirPath"
+          }, 
+          {
+            "value": "cas-shared-default", 
+            "name": "CASServer"
+          }, 
+          {
+            "value": "CAS, Compute", 
+            "name": "ImportTargetEnvs"
+          }, 
+          {
+            "value": "SAS Studio compute context, SAS Job Execution compute context", 
+            "name": "ComputeContexts"
+          }
+        ], 
+        "resourceName": "Sales Data"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B400000O", 
+        "properties": [
+          {
+            "value": "/gelcontent/gelcorp/shared/data", 
+            "name": "DirPath"
+          }, 
+          {
+            "value": "cas-shared-default", 
+            "name": "CASServer"
+          }, 
+          {
+            "value": "CAS, Compute", 
+            "name": "ImportTargetEnvs"
+          }, 
+          {
+            "value": "SAS Studio compute context, SAS Job Execution compute context", 
+            "name": "ComputeContexts"
+          }
+        ], 
+        "resourceName": "Shared Data"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B400000L", 
+        "properties": [
+          {
+            "value": "/gelcontent/gelcorp/finance/data", 
+            "name": "DirPath"
+          }, 
+          {
+            "value": "cas-shared-default", 
+            "name": "CASServer"
+          }, 
+          {
+            "value": "CAS, Compute", 
+            "name": "ImportTargetEnvs"
+          }, 
+          {
+            "value": "SAS Studio compute context, SAS Job Execution compute context", 
+            "name": "ComputeContexts"
+          }
+        ], 
+        "resourceName": "Financial Data"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B400000M", 
+        "properties": [
+          {
+            "value": "/gelcontent/gelcorp/hr/data", 
+            "name": "DirPath"
+          }, 
+          {
+            "value": "cas-shared-default", 
+            "name": "CASServer"
+          }, 
+          {
+            "value": "CAS, Compute", 
+            "name": "ImportTargetEnvs"
+          }, 
+          {
+            "value": "SAS Studio compute context, SAS Job Execution compute context", 
+            "name": "ComputeContexts"
+          }
+        ], 
+        "resourceName": "HR Data"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B4000004", 
+        "properties": [
+          {
+            "value": "CAS", 
+            "name": "ImportTargetEnvs"
+          }
+        ], 
+        "resourceName": "Visual Analytics LASR"
+      }, 
+      {
+        "resourceId": "/import9/promotion/A5ELUBD6.B400000P", 
+        "properties": [
+          {
+            "value": "CAS", 
+            "name": "ImportTargetEnvs"
+          }
+        ], 
+        "resourceName": "HR - LASR Library"
+      }, 
+      {
+        "resourceId": "/import9/cubes/A5ELUBD6.C8000001", 
+        "properties": [
+          {
+            "value": "D:\\workshop\\gelcorp\\finance\\cubesandmaps", 
+            "name": "CubePhysicalDirectory.DirPath"
+          }
+        ], 
+        "resourceName": "Finance_Analysis"
+      }, 
+      {
+        "resourceId": "/import9/cubes/A5ELUBD6.C8000002", 
+        "properties": [
+          {
+            "value": "D:\\workshop\\gelcorp\\finance\\cubesandmaps", 
+            "name": "CubePhysicalDirectory.DirPath"
+          }
+        ], 
+        "resourceName": "Finance_Analysis_V2"
+      }
+    ]
+  }

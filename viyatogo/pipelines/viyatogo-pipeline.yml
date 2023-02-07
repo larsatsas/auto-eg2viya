@@ -19,9 +19,7 @@
 stages:          # List of stages for jobs, and their order of execution
   - import-data
   - import
-  - validate
 
 include:
-#  - local: 'pipelines/export.yml
   - local: 'viyatogo/pipelines/import-data.yml'
   - local: 'viyatogo/pipelines/import.yml'
