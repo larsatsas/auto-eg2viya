@@ -1,0 +1,84 @@
+import-data:
+  tags:
+    - viyatogo
+  stage: import
+  script:
+# kind of a hack using sudo to get the essential data in place - normally you would have a separate process for getting data across (may want to do this differently?)
+# source data
+    - sudo cp exported/data/financials.sas7bdat /nfsshare/shared-data/gelcorp/finance/data
+    - sudo cp exported/data/profit.csv /nfsshare/shared-data/gelcorp/finance/srcdata/
+#expected results to compare against
+    - sudo cp exported/data/facility_state.sas7bdat /nfsshare/shared-data/gelcorp/expected
+    - sudo cp exported/data/lookup_facility_name.sas7bdat /nfsshare/shared-data/gelcorp/expected
+    - sudo cp exported/data/productline.sas7bdat /nfsshare/shared-data/gelcorp/expected
+
+cleanup-target:
+  tags:
+    - viyatogo
+  stage: import
+  script:
+    - sh utilities/resetviyatogo.sh ||  exit_code=$?
+    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
+  needs: ["import-data"]
+
+prepare-target:
+  tags:
+    - viyatogo
+  stage: import
+  script:
+  # init env variables
+    - whoami
+    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+    - /opt/pyviyatools/loginviauthinfo.py
+# setup startup and autoexec for compute, batch and sas studio
+    - echo "Configure startup and autoexec for compute and batch as well as fileshare in sas studio"
+    - sas-viya configuration configurations update --file target_config/compute-startup_commands.json
+    - sas-viya configuration configurations update --file target_config/compute-autoexec-viyatogo.json
+    - sas-viya configuration configurations update --file target_config/batch-autoexec-viyatogo.json
+  needs: ["cleanup-target"]
+
+
+import-structure-sasviya:   # This job imports initial structure to target sas viya environment.
+  tags:
+    - viyatogo
+  stage: import   
+  script:
+    - echo "Importing"
+    - whoami
+    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+    - /opt/pyviyatools/loginviauthinfo.py
+# folders
+    - import_id=$(sas-viya --output json transfer upload --file exported/otherSASPackages/folders.spk | jq -r .id)
+    - sas-viya -q transfer import --id $import_id || exit_code=$?
+    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
+  needs: ["prepare-target"]
+
+import-EGProjects:   # This job imports prepared content to target sas viya environment.
+  tags:
+    - viyatogo
+  stage: import  
+  script:
+    - echo "Importing EG Projects"
+    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+    - /opt/pyviyatools/loginviauthinfo.py
+    - utilities/importEGProjects --sas-viya-path /usr/local/bin/sas-viya --source-file "to_import/List_of_SAS_Enterprise_Guide_Projects.csv" --root-folder "Public"
+  needs: ["import-structure-sasviya"]
+
+import-DISASPackages:
+  tags:
+    - viyatogo
+  stage: import
+  script:
+    - echo "Importing DI SAS packages"
+    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+    - /opt/pyviyatools/loginviauthinfo.py
+# finance - DIFT Parameterized job 
+    - import_id=$(sas-viya --output json transfer upload --file "exported/DISASPackages/gelcorp/financecontent/DataSupport/DIFT Parameterized Job for Company Profit Forecasts.spk"  | jq -r .id)
+    - sas-viya -q  transfer import --id "$import_id" --mapping exported/gelcorpDataMapped.json ||  exit_code=$?
+    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
+  needs: ["import-structure-sasviya"]
+
