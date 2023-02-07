@@ -10,14 +10,14 @@ import-data:
 #expected results to compare against
     - sudo cp exported/data/facility_state.sas7bdat /nfsshare/shared-data/gelcorp/expected
     - sudo cp exported/data/lookup_facility_name.sas7bdat /nfsshare/shared-data/gelcorp/expected
-    - sudo cp exported/data/productline.sas7bdat /nfsshare/shared-data/gelcorp/expected
+#    - sudo cp exported/data/productline.sas7bdat /nfsshare/shared-data/gelcorp/expected
 
 cleanup-target:
   tags:
     - viyatogo
   stage: import
   script:
-    - sh utilities/resetviyatogo.sh ||  exit_code=$?
+    - sh viyatogo/utilities/resetviyatogo.sh ||  exit_code=$?
     - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
   needs: ["import-data"]
 
@@ -33,9 +33,9 @@ prepare-target:
     - /opt/pyviyatools/loginviauthinfo.py
 # setup startup and autoexec for compute, batch and sas studio
     - echo "Configure startup and autoexec for compute and batch as well as fileshare in sas studio"
-    - sas-viya configuration configurations update --file target_config/compute-startup_commands.json
-    - sas-viya configuration configurations update --file target_config/compute-autoexec-viyatogo.json
-    - sas-viya configuration configurations update --file target_config/batch-autoexec-viyatogo.json
+    - sas-viya configuration configurations update --file viyatogo/config/compute-startup_commands.json
+    - sas-viya configuration configurations update --file viyatogo/config/compute-autoexec.json
+    - sas-viya configuration configurations update --file viyatogo/config/batch-autoexec.json
   needs: ["cleanup-target"]
 
 
