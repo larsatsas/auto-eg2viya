@@ -53,7 +53,7 @@ import-DISASPackages:
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
 # finance - DIFT Parameterized job 
-    - viyatogo/utilities/importSASPackages --sas-viya-path /usr/local/bin/sas-viya --source-file "exported/list_of_DI_Jobs.csv" --root-folder "Public"
+    - viyatogo/utilities/importSASPackages --sas-viya-path /usr/local/bin/sas-viya --source-location "exported/DISASPackages/gelcorp/financecontent/DataSupport" --root-folder "Public"
 #    - import_id=$(sas-viya --output json transfer upload --file "exported/DISASPackages/gelcorp/financecontent/DataSupport/DIFT Parameterized Job for Company Profit Forecasts.spk"  | jq -r .id)
 #    - sas-viya -q  transfer import --id "$import_id" --mapping exported/gelcorpDataMapped.json ||  exit_code=$?
 #    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
