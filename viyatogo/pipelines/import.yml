@@ -13,7 +13,6 @@ prepare-target:
     - sas-viya configuration configurations update --file viyatogo/config/compute-startup_commands.json
     - sas-viya configuration configurations update --file viyatogo/config/compute-autoexec.json
     - sas-viya configuration configurations update --file viyatogo/config/batch-autoexec.json
-  needs: ["cleanup-target"]
 
 
 import-structure-sasviya:   # This job imports initial structure to target sas viya environment.
@@ -41,7 +40,7 @@ import-EGProjects:   # This job imports prepared content to target sas viya envi
     - export SSL_CERT_FILE=~/certs/server-cacerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
-    - utilities/importEGProjects --sas-viya-path /usr/local/bin/sas-viya --source-file "to_import/List_of_SAS_Enterprise_Guide_Projects.csv" --root-folder "Public"
+    - utilities/importEGProjects --sas-viya-path /usr/local/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
   needs: ["import-structure-sasviya"]
 
 import-DISASPackages:
