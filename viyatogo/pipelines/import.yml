@@ -1,6 +1,6 @@
 prepare-target:
   tags:
-    - viyatogo
+    - viyatogo-import
   stage: import
   script:
   # init env variables
@@ -17,7 +17,7 @@ prepare-target:
 
 import-structure-sasviya:   # This job imports initial structure to target sas viya environment.
   tags:
-    - viyatogo
+    - viyatogo-import
   stage: import   
   script:
     - echo "Importing"
@@ -33,7 +33,7 @@ import-structure-sasviya:   # This job imports initial structure to target sas v
 
 import-EGProjects:   # This job imports prepared content to target sas viya environment.
   tags:
-    - viyatogo
+    - viyatogo-import
   stage: import  
   script:
     - echo "Importing EG Projects"
@@ -45,7 +45,7 @@ import-EGProjects:   # This job imports prepared content to target sas viya envi
 
 import-DISASPackages:
   tags:
-    - viyatogo
+    - viyatogo-import
   stage: import
   script:
     - echo "Importing DI SAS packages"
