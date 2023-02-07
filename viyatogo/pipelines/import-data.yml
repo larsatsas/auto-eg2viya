@@ -1,6 +1,6 @@
 import-data:
   tags:
-    - viyatogo-import
+    - viyatogo
   stage: import-data
   script:
 # kind of a hack using sudo to get the essential data in place - normally you would have a separate process for getting data across (may want to do this differently?)
@@ -14,7 +14,7 @@ import-data:
 
 cleanup-target:
   tags:
-    - viyatogo-import
+    - viyatogo
   stage: import-data
   script:
     - sh viyatogo/utilities/resetviyatogo.sh ||  exit_code=$?
