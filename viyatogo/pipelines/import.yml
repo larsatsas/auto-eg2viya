@@ -15,22 +15,6 @@ prepare-target:
     - sas-viya configuration configurations update --file viyatogo/config/batch-autoexec.json
 
 
-import-structure-sasviya:   # This job imports initial structure to target sas viya environment.
-  tags:
-    - viyatogo-import
-  stage: import   
-  script:
-    - echo "Importing"
-    - whoami
-    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
-    - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
-    - /opt/pyviyatools/loginviauthinfo.py
-# folders
-#    - import_id=$(sas-viya --output json transfer upload --file exported/otherSASPackages/folders.spk | jq -r .id)
-#    - sas-viya -q transfer import --id $import_id || exit_code=$?
-#    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
-  needs: ["prepare-target"]
-
 import-EGProjects:   # This job imports prepared content to target sas viya environment.
   tags:
     - viyatogo-import
@@ -41,7 +25,6 @@ import-EGProjects:   # This job imports prepared content to target sas viya envi
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     - viyatogo/utilities/importEGProjects --sas-viya-path /usr/local/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
-  needs: ["import-structure-sasviya"]
 
 import-DISASPackages:
   tags:
@@ -54,8 +37,4 @@ import-DISASPackages:
     - /opt/pyviyatools/loginviauthinfo.py
 # finance - DIFT Parameterized job 
     - viyatogo/utilities/importSASPackages --sas-viya-path /usr/local/bin/sas-viya --source-location "exported/DISASPackages/gelcorp/financecontent/DataSupport"
-#    - import_id=$(sas-viya --output json transfer upload --file "exported/DISASPackages/gelcorp/financecontent/DataSupport/DIFT Parameterized Job for Company Profit Forecasts.spk"  | jq -r .id)
-#    - sas-viya -q  transfer import --id "$import_id" --mapping exported/gelcorpDataMapped.json ||  exit_code=$?
-#    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
-  needs: ["import-structure-sasviya"]
 
