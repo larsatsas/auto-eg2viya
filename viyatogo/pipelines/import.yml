@@ -26,9 +26,9 @@ import-structure-sasviya:   # This job imports initial structure to target sas v
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
 # folders
-    - import_id=$(sas-viya --output json transfer upload --file exported/otherSASPackages/folders.spk | jq -r .id)
-    - sas-viya -q transfer import --id $import_id || exit_code=$?
-    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
+#    - import_id=$(sas-viya --output json transfer upload --file exported/otherSASPackages/folders.spk | jq -r .id)
+#    - sas-viya -q transfer import --id $import_id || exit_code=$?
+#    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
   needs: ["prepare-target"]
 
 import-EGProjects:   # This job imports prepared content to target sas viya environment.
