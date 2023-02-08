@@ -58,3 +58,4 @@ import-DISASPackages:
 #    - sas-viya -q  transfer import --id "$import_id" --mapping exported/gelcorpDataMapped.json ||  exit_code=$?
 #    - if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
   needs: ["import-structure-sasviya"]
+

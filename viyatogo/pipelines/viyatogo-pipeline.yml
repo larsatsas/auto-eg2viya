@@ -19,7 +19,9 @@
 stages:          # List of stages for jobs, and their order of execution
   - import-data
   - import
+  - load-migration-data
 
 include:
   - local: 'viyatogo/pipelines/import-data.yml'
   - local: 'viyatogo/pipelines/import.yml'
+  - local: 'viyatogo/pipelines/load-migration-data.yml'
