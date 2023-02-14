@@ -1,6 +1,6 @@
 load-migration-data:
   tags:
-    - viyatogo-import
+    - PSGEL270-Race
   stage: load-migration-data
   script:
     - echo "Loading migration data for the migration summary report"

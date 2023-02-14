@@ -17,5 +17,5 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 include: 
-  - local: 'viyatogo/pipelines/viyatogo-pipeline.yml'
+  - local: 'PSGEL270-RACE/pipelines/main-pipeline.yml'
   

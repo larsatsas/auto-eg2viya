@@ -10,7 +10,7 @@
                 "mediaType": "application/vnd.sas.configuration.config.sas.compute.server+json;version=1"
              },
              "name": "autoexec_code",
-             "contents": "libname EXPECTED '/shared-data/gelcorp/expected'; \n libname FINDATA '/shared-data/gelcorp/finance/data'; \n /*Allow List*/  \n lockdown path='/shared-data/gelcorp'; \n"
+             "contents": "libname EXPECTED '/gelcontent/gelcorp/expected'; \n libname FINDATA '/gelcontent/gelcorp/finance/data'; \n /*Allow List*/  \n lockdown path='/gelcontent/gelcorp/gelcorp'; \n"
        }
     ],
     "version": 2
