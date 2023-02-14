@@ -1,0 +1,10 @@
+load-migration-data:
+  tags:
+    - viyatogo-import
+  stage: load-migration-data
+  script:
+    - echo "Loading migration data for the migration summary report"
+    - kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader --namespace viya4
+    - sleep 20
+    - kubectl --namespace viya4 logs -f job/loadimportdata-001 | klog
+    - kubectl delete job loadimportdata-001 --namespace viya4

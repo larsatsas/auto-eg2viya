@@ -1,0 +1,16 @@
+{
+    "name": "configurations",
+    "items": [
+       {
+          "metadata": {
+             "isDefault": false,
+             "mediaType": "application/vnd.sas.configuration.config.sas.studio+json;version=21"
+          },
+          "serverDisplayName": "NFS gelcontent",
+          "showServerFiles": true,
+          "fileNavigationRoot": "CUSTOM",
+          "fileNavigationCustomRootPath" : "/gelcontent"
+       }
+    ]
+ }
+ 
