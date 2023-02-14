@@ -4,7 +4,8 @@ load-migration-data:
   stage: load-migration-data
   script:
     - echo "Loading migration data for the migration summary report"
-    - kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader --namespace viya4
+    - gel_setCurrentNamespace target
+    - kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader
     - sleep 20
     - kubectl --namespace viya4 logs -f job/loadimportdata-001 | klog
-    - kubectl delete job loadimportdata-001 --namespace viya4
+    - kubectl delete job loadimportdata-001
