@@ -5,7 +5,9 @@ prepare-target:
   script:
   # init env variables
     - whoami
-    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - gel_setCurrentNamespace target
+    - export SAS_CLI_PROFILE=${current_namespace}
+    - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
 # setup startup and autoexec for compute, batch and sas studio
@@ -21,7 +23,9 @@ import-EGProjects:   # This job imports prepared content to target sas viya envi
   stage: import  
   script:
     - echo "Importing EG Projects"
-    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - gel_setCurrentNamespace target
+    - export SAS_CLI_PROFILE=${current_namespace}
+    - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     - viyatogo/utilities/importEGProjects --sas-viya-path /usr/local/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
@@ -33,7 +37,9 @@ import-DISASPackages:
   stage: import
   script:
     - echo "Importing DI SAS packages"
-    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - gel_setCurrentNamespace target
+    - export SAS_CLI_PROFILE=${current_namespace}
+    - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
 # finance - DIFT Parameterized job 
