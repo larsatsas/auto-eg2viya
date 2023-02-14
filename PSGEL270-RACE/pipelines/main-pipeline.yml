@@ -20,6 +20,7 @@ stages:          # List of stages for jobs, and their order of execution
   - import-data
   - import
   - load-migration-data
+  - validate
 
 include:
   - local: 'PSGEL270-RACE/pipelines/import-data.yml'
