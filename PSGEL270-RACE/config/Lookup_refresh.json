@@ -1,0 +1,9 @@
+{
+    "reference": {
+      "type": "compute",
+      "path": "/shared-data/migrate2Viya/viyatogo/flowsFromEG/Financial_Master_v1/Lookup Refresh.flw",
+      "mediaType": "application/vnd.sas.dataflow"
+    },
+    "initCode": true,
+    "wrapperCode": false
+}  

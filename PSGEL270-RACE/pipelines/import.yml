@@ -15,7 +15,7 @@ prepare-target:
     - sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-startup_commands.json
     - sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-autoexec.json
     - sas-viya configuration configurations update --file PSGEL270-RACE/config/batch-autoexec.json
-
+    - sas-viya configuration configurations update --file PSGEL270-RACE/config/update_studio.json
 
 import-EGProjects:   # This job imports prepared content to target sas viya environment.
   tags:
