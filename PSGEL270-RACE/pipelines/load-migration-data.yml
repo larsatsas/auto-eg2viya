@@ -7,5 +7,5 @@ load-migration-data:
     - gel_setCurrentNamespace target
     - kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader
     - sleep 20
-    - kubectl --namespace viya4 logs -f job/loadimportdata-001 | klog
+    - kubectl logs -f job/loadimportdata-001 | klog
     - kubectl delete job loadimportdata-001
