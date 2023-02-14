@@ -40,7 +40,6 @@ validate-DIimport:      # This job runs in the validate stage.
     - sudo grep '$-' '/shared/gelcontent/gelcorp/finance/html/Orion USA ProfitInfo.html' > actual_result
 # Compare what we got now with what we had at the source environment
     - diff PSGEL270-RACE/flowsFromDI/financecontent/DataSupport/expected_results/Orion_USA_Profitnumbers.txt actual_result
-mbers.txt
   artifacts:
     name: "$CI_PIPELINE_ID-$CI_JOB_NAME"
     paths:
