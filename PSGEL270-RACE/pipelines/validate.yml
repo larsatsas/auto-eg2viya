@@ -4,14 +4,16 @@ validate-EGimport:      # This job runs in the validate stage.
   stage: validate
   script:
     - echo "Validating the import on linux..."
-    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - gel_setCurrentNamespace target
+    - export SAS_CLI_PROFILE=${current_namespace}
+    - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     # Generate SAS code from the imported EG job that turned into a flow, so that we can test it
     - /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i viyatogo/config/Lookup_refresh.json -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
     - sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
   # test against expected results
-    - sas-viya batch jobs submit-pgm --pgm-path viyatogo/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
+    - sas-viya batch jobs submit-pgm --pgm-path PSGEL270-RACE/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
   artifacts:
     name: "$CI_PIPELINE_ID-$CI_JOB_NAME"
     paths:
@@ -26,16 +28,18 @@ validate-DIimport:      # This job runs in the validate stage.
   stage: validate
   script:
     - echo "Validating the import on linux..."
-    - export SSL_CERT_FILE=~/certs/server-cacerts.pem
+    - gel_setCurrentNamespace target
+    - export SAS_CLI_PROFILE=${current_namespace}
+    - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     # Generate SAS code from the imported EG job that turned into a flow, so that we can test it
     - /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i "viyatogo/config/DIFT Parameterized Job for Company Profit Forecasts.json" -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
     - sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
     # Just get the numbers out - we dont want to compare the formatting - they are by nature different due to different platforms
-    - sudo grep '$-' '/nfsshare/shared-data/gelcorp/finance/html/Orion USA ProfitInfo.html' > actual_result
+    - sudo grep '$-' '/shared/gelcontent/gelcorp/finance/html/Orion USA ProfitInfo.html' > actual_result
 # Compare what we got now with what we had at the source environment
-    - diff viyatogo/flowsFromDI/gelcorp/financecontent/DataSupport/expected_results/Orion_USA_Profitnumbers.txt actual_result
+    - diff PSGEL270-RACE/flowsFromDI/gelcorp/financecontent/DataSupport/expected_results/Orion_USA_Profitnumbers.txt actual_result
   artifacts:
     name: "$CI_PIPELINE_ID-$CI_JOB_NAME"
     paths:
