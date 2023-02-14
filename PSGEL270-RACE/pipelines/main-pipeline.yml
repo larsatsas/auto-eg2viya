@@ -23,7 +23,7 @@ stages:          # List of stages for jobs, and their order of execution
   - validate
 
 include:
-  - local: 'PSGEL270-RACE/pipelines/import-data.yml'
-  - local: 'PSGEL270-RACE/pipelines/import.yml'
-  - local: 'PSGEL270-RACE/pipelines/load-migration-data.yml'
+#  - local: 'PSGEL270-RACE/pipelines/import-data.yml'
+#  - local: 'PSGEL270-RACE/pipelines/import.yml'
+#  - local: 'PSGEL270-RACE/pipelines/load-migration-data.yml'
   - local: 'PSGEL270-RACE/pipelines/validate.yml'

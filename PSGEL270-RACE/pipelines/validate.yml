@@ -10,7 +10,7 @@ validate-EGimport:      # This job runs in the validate stage.
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     # Generate SAS code from the imported EG job that turned into a flow, so that we can test it
-    - /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i viyatogo/config/Lookup_refresh.json -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
+    - /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i PSGEL270-RACE/config/Lookup_refresh.json -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
     - sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
   # test against expected results
     - sas-viya batch jobs submit-pgm --pgm-path PSGEL270-RACE/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
@@ -34,7 +34,7 @@ validate-DIimport:      # This job runs in the validate stage.
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     # Generate SAS code from the imported EG job that turned into a flow, so that we can test it
-    - /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i "viyatogo/config/DIFT Parameterized Job for Company Profit Forecasts.json" -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
+    - /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i "PSGEL270-RACE/config/DIFT Parameterized Job for Company Profit Forecasts.json" -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
     - sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
     # Just get the numbers out - we dont want to compare the formatting - they are by nature different due to different platforms
     - sudo grep '$-' '/shared/gelcontent/gelcorp/finance/html/Orion USA ProfitInfo.html' > actual_result
