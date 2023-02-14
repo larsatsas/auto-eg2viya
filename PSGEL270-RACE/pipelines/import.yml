@@ -28,7 +28,7 @@ import-EGProjects:   # This job imports prepared content to target sas viya envi
     - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
-    - viyatogo/utilities/importEGProjects --sas-viya-path /usr/local/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
+    - viyatogo/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
   needs: ["prepare-target"]
 
 import-DISASPackages:
@@ -43,6 +43,6 @@ import-DISASPackages:
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
 # finance - DIFT Parameterized job 
-    - viyatogo/utilities/importSASPackages --sas-viya-path /usr/local/bin/sas-viya --source-location "exported/DISASPackages/gelcorp/financecontent/DataSupport"
+    - viyatogo/utilities/importSASPackages --sas-viya-path /usr/bin/sas-viya --source-location "exported/DISASPackages/gelcorp/financecontent/DataSupport"
   needs: ["prepare-target"]
 
