@@ -1,14 +1,4 @@
-move-and-fix-flows:
-  tags:
-    - PSGEL270-Race
-  stage: validate
-  script:
-    - echo "This is a manual job which doesn't start automatically, and the pipeline can complete without it starting."
-  when: manual # This setting turns a job into a manual one
-
 validate-EGimport:      # This job runs in the validate stage.
-  needs:
-    - move-and-fix-flows
   tags:
     - PSGEL270-Race
   stage: validate
@@ -27,10 +17,9 @@ validate-EGimport:      # This job runs in the validate stage.
     paths:
       - "*.log"
       - "*.lst"
+  when: manual # This setting turns a job into a manual one
 
 validate-DIimport:      # This job runs in the validate stage.
-  needs:
-    - move-and-fix-flows
   tags:
     - PSGEL270-Race
   stage: validate
@@ -51,3 +40,4 @@ validate-DIimport:      # This job runs in the validate stage.
     paths:
       - "*.log"
       - "*.lst"
+  when: manual # This setting turns a job into a manual one
