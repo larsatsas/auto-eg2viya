@@ -25,7 +25,6 @@ validate-EGimport:      # This job runs in the validate stage.
     paths:
       - "*.log"
       - "*.lst"
-  needs: ["move-and-fix-flows"]
 
 validate-DIimport:      # This job runs in the validate stage.
   tags:
@@ -48,4 +47,3 @@ validate-DIimport:      # This job runs in the validate stage.
     paths:
       - "*.log"
       - "*.lst"
-  needs: ["move-and-fix-flows"]
