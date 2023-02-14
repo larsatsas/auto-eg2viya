@@ -18,6 +18,7 @@ validate-EGimport:      # This job runs in the validate stage.
       - "*.log"
       - "*.lst"
   when: manual # This setting turns a job into a manual one
+  allow_failure: false
 
 validate-DIimport:      # This job runs in the validate stage.
   tags:
@@ -41,3 +42,4 @@ validate-DIimport:      # This job runs in the validate stage.
       - "*.log"
       - "*.lst"
   when: manual # This setting turns a job into a manual one
+  allow_failure: false
