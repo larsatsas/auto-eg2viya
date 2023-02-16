@@ -19,11 +19,9 @@
 stages:          # List of stages for jobs, and their order of execution
   - prepare-target
   - import
-  - load-migration-data
   - validate
 
 include:
   - local: 'PSGEL270-RACE/pipelines/prepare-target.yml'
   - local: 'PSGEL270-RACE/pipelines/import.yml'
-  - local: 'PSGEL270-RACE/pipelines/load-migration-data.yml'
   - local: 'PSGEL270-RACE/pipelines/validate.yml'

@@ -10,7 +10,6 @@ import-EGProjects:   # This job imports prepared content to target sas viya envi
     - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
     - /opt/pyviyatools/loginviauthinfo.py
     - viyatogo/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
-  needs: ["prepare-target"]
 
 import-DISASPackages:
   tags:
@@ -25,5 +24,20 @@ import-DISASPackages:
     - /opt/pyviyatools/loginviauthinfo.py
 # finance - DIFT Parameterized job 
     - viyatogo/utilities/importSASPackages --sas-viya-path /usr/bin/sas-viya --source-location "exported/DISASPackages/gelcorp/financecontent/DataSupport"
-  needs: ["prepare-target"]
+
+
+load-migration-data:
+  needs:
+    - import-EGProjects
+    - import-DISASPackages
+  tags:
+    - PSGEL270-Race
+  stage: load-migration-data
+  script:
+    - echo "Loading migration data for the migration summary report"
+    - gel_setCurrentNamespace target
+    - kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader
+    - sleep 20
+    - kubectl logs -f job/loadimportdata-001 | klog
+    - kubectl delete job loadimportdata-001
 
