@@ -32,7 +32,7 @@ load-migration-data:
     - import-DISASPackages
   tags:
     - PSGEL270-Race
-  stage: load-migration-data
+  stage: import
   script:
     - echo "Loading migration data for the migration summary report"
     - gel_setCurrentNamespace target
