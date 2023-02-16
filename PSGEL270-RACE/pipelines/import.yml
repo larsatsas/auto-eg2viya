@@ -1,22 +1,3 @@
-prepare-target:
-  tags:
-    - PSGEL270-Race
-  stage: import
-  script:
-  # init env variables
-    - whoami
-    - gel_setCurrentNamespace target
-    - export SAS_CLI_PROFILE=${current_namespace}
-    - export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
-    - export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
-    - /opt/pyviyatools/loginviauthinfo.py
-# setup startup and autoexec for compute, batch and sas studio
-    - echo "Configure startup and autoexec for compute and batch as well as fileshare in sas studio"
-    - sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-startup_commands.json
-    - sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-autoexec.json
-    - sas-viya configuration configurations update --file PSGEL270-RACE/config/batch-autoexec.json
-    - sas-viya configuration configurations update --file PSGEL270-RACE/config/update_studio.json
-
 import-EGProjects:   # This job imports prepared content to target sas viya environment.
   tags:
     - PSGEL270-Race
