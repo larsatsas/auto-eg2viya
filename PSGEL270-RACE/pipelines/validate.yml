@@ -16,6 +16,8 @@ import-validation-data:
 
 
 validate-EGimport:      # This job runs in the validate stage.
+  needs: 
+    - import-validation-data
   tags:
     - PSGEL270-Race
   stage: validate
@@ -40,6 +42,8 @@ validate-EGimport:      # This job runs in the validate stage.
   allow_failure: false
 
 validate-DIimport:      # This job runs in the validate stage.
+  needs: 
+    - import-validation-data
   tags:
     - PSGEL270-Race
   stage: validate
