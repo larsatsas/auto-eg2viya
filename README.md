@@ -19,7 +19,19 @@ The approach should in theory work well in github, Azure Devops and similar git 
 ## Understanding and setting up the environments to prepare for CICD
 |![Environment overview](images/environment overview.jpg)|
 |-|
+If you want to follow this process to the teeth, just book the [PSGEL270 environment](http://race.exnet.sas.com/Reservations?action=new&imageId=345656&imageKind=C&comment=%20PSGEL270%20VLE%20_CHAP4-ONLY_%20&purpose=PST&sso=PSGEL270&schedtype=SchedTrainEDU&startDate=now&endDateLength=3&discardonterminate=y) (just click the link to book it) - it will give you a SAS 94M7 environment as well as a SAS Viya environment (2022.11). The pipelines as such are tuned into how the SAS Viya environments on RACE are typically set up.
 
+The SAS 94 environment comes with a fairly complete set of tools to manage and develop SAS artifacts:
+
+* SAS Management console - provides a way to understand how libraries are set up, in our case we are using it to find out where the SAS datasets being used resides physically, and also changed the name to deal with a current bug in the migration process
+* SAS DI studio - we want to import one SAS DI Studio job - and SAS DI Studio provides a convenient way of exporting SAS DI studio jobs and making it available in a git repo
+* SAS Enterprise Guide - we want to import a flow from one Enterprise Guide project as well as take advantage of a fairly user friendly and SAS friendly user interface to git inside Enterprise Guide
+
+This post focuses on content migration - data migration may very well be covered at a later stage - all kinds of interesting topics to cover; like conversion of encoding, migrating to different types of data sources, and latency when moving data. In this example, we simply copied the data sets as files from the SAS94 environment to the SAS Viya environment.
+
+See the following picture for how to get the physical location of the SAS library we want to work with.
+|![SAS Management Console with library definition](images/SAS Management Console - libname.jpg)|
+|-|
 
 ## Getting started
 
