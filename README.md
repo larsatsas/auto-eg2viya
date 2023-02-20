@@ -1,5 +1,24 @@
-# import2viya
+# Automating the move to Viya with CICD
 
+2023 looks to be our year of moving to SAS Viya from SAS 94 for many of our customers. Those of us who have tried doing this, i.e. through the [PSGEL270 training](https://eduvle.sas.com/course/view.php?id=1985&section=5#tabs-tree-start) or even done it with customers have most likely experienced that this work is tedious and requires tight attention to details.
+
+And as humans we are not always good at that – we get bored and sloppy, and mistakes may happen.
+
+So why not automate this and have a computer do this for us? With CICD and devops being a thing – and our customers doing cicd all over the place, and us doing it ourselves with our own Viya, doing migration through CICD seems to be a sensible way of attacking this. Also – many of the tools for migration are well suited for automation – most of them have command-line options.
+
+And as a CICD addict and true believer in all things agile, going cicd on migration makes a ton of sense.
+
+This post will go through:
+
+* Understanding and setting up the environments to prepare for CICD
+* How to use git to transfer content between SAS94 and SAS Viya
+* Using gitlab cicd to automate importing and validation of sas content to SAS Viya
+
+The approach should in theory work well in github, Azure Devops and similar git management platforms – as the concepts for managing the CICD pipelines are quite similar. The approach is based on the [PSGEL270 training](https://eduvle.sas.com/course/view.php?id=1985&section=5#tabs-tree-start) and the [PSGEL283 training on devops principles to SAS Viya Data Management](https://eduvle.sas.com/course/view.php?id=1982). Those are highly recommended if you want to dig deeper into migration as well as devops with SAS.
+
+## Understanding and setting up the environments to prepare for CICD
+|![Environment overview](images/environment overview.jpg)|
+|-|
 
 
 ## Getting started
