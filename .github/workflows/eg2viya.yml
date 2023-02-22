@@ -28,12 +28,9 @@ jobs:
       - name: cleanup-target
         run: |
           echo Preparing target environment
-          # all of /gelcorp
-          # the egprojects that were imported
-          #export SAS_CLI_PROFILE=target
-          #export SSL_CERT_FILE=~/.certs/target_trustedcerts.pem
           export REQUESTS_CA_BUNDLE=~/.certs/target_trustedcerts.pem
           /opt/pyviyatools/loginviauthinfo.py
+          # the egprojects that were imported
           /opt/pyviyatools/deletecontent.py -f /Public/exported -i -q || exit_code=$?
           echo $exit_code
 
