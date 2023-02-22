@@ -1,9 +1,0 @@
-{
-    "reference": {
-      "type": "compute",
-      "path": "/gelcontent/migrate2Viya/PSGEL270-RACE/flowsFromDI/financecontent/DataSupport/DIFT Parameterized Job for Company Profit Forecasts.flw",
-      "mediaType": "application/vnd.sas.dataflow"
-    },
-    "initCode": true,
-    "wrapperCode": false
-}  
