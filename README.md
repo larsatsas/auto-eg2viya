@@ -1,4 +1,4 @@
-# Automating migration of Enterprise Guide to SAS Viya with CICD pipelines in github
+# Automating migration of Enterprise Guide to SAS Viya
 
 Many are now considering migrating Enterprise Guide projects to SAS Viya. This work can be tedious and requires tight attention to details.
 
