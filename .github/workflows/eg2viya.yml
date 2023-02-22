@@ -40,10 +40,6 @@ jobs:
       - name: prepare-target
         run: |
           echo Preparing target environment
-          # export SAS_CLI_PROFILE=${current_namespace}
-          # export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
-          # export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
-          # /opt/pyviyatools/loginviauthinfo.py
           # setup startup and autoexec for compute, batch and sas studio
           echo "Configure startup and autoexec for compute and batch as well as fileshare in sas studio"
           sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-startup_commands.json
@@ -55,10 +51,6 @@ jobs:
       - name: import-EGProjects
         run: |
           echo Import EG project to SAS Viya from the git repo
-          # export SAS_CLI_PROFILE=${current_namespace}
-          # export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
-          # export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
-          # /opt/pyviyatools/loginviauthinfo.py
           chmod +x PSGEL270-RACE/utilities/importEGProjects
           PSGEL270-RACE/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
 
