@@ -54,6 +54,7 @@ jobs:
           export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
           export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
           /opt/pyviyatools/loginviauthinfo.py
+          chmod +x PSGEL270-RACE/utilities/importEGProjects
           PSGEL270-RACE/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
 
       - name: load-migration-data
