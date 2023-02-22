@@ -61,12 +61,17 @@ jobs:
         run: |
           echo "Loading migration data for the migration summary report"
           kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader
-          sleep 20
+          sleep 30
           kubectl logs -f job/loadimportdata-001 | klog
           kubectl delete job loadimportdata-001
 
-      - name: validate
+      - name: validate-EGimport
         run: |
           echo Validate what we just imported
-          echo test, and deploy your project.
-
+          # Generate SAS code from the imported EG job that turned into a flow, so that we can test it
+          /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i PSGEL270-RACE/config/Lookup_refresh.json -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
+          sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
+          # test against expected results
+          sas-viya batch jobs submit-pgm --pgm-path PSGEL270-RACE/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
+        when: manual # This setting turns a job into a manual one
+        allow_failure: false
