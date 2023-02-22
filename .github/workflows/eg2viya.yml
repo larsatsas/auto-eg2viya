@@ -29,7 +29,8 @@ jobs:
       - name: prepare-target
         run: |
           echo Preparing target environment
-          echo test, and deploy your project.
+          whoami
+          pwd
 
       # Runs a set of commands using the runners shell
       - name: import
