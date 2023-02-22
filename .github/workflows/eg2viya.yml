@@ -51,14 +51,6 @@ jobs:
           chmod +x PSGEL270-RACE/utilities/importEGProjects
           PSGEL270-RACE/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
 
-      - name: load-migration-data
-        run: |
-          echo "Loading migration data for the migration summary report"
-          kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader
-          sleep 30
-          kubectl logs -f job/loadimportdata-001 | klog
-          kubectl delete job loadimportdata-001
-
       - name: import-validation-data
         run: |
           # kind of a hack using sudo to get the essential data in place - normally you would have a separate process for getting data across (may want to do this differently?)
