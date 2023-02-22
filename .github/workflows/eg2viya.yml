@@ -73,5 +73,5 @@ jobs:
           sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
           # test against expected results
           sas-viya batch jobs submit-pgm --pgm-path PSGEL270-RACE/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
-        when: manual # This setting turns a job into a manual one
-        allow_failure: false
+        #when: manual # This setting turns a job into a manual one
+        #allow_failure: false
