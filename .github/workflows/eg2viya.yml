@@ -53,10 +53,8 @@ jobs:
 
       - name: import-validation-data
         run: |
-          # kind of a hack using sudo to get the essential data in place - normally you would have a separate process for getting data across (may want to do this differently?)
-          # source data
+          # test data
           sudo cp exported/data/financials.sas7bdat /shared/gelcontent/gelcorp/finance/data
-          sudo cp exported/data/profit.csv /shared/gelcontent/gelcorp/finance/srcdata/ 
           #expected results to compare against
           sudo rm -rf /shared/gelcontent/gelcorp/expected/
           sudo mkdir /shared/gelcontent/gelcorp/expected/
