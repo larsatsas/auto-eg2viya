@@ -35,7 +35,7 @@ jobs:
           export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
           /opt/pyviyatools/loginviauthinfo.py
           /opt/pyviyatools/deletecontent.py -f /Public/exported -i -q || exit_code=$?
-          if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
+          echo $exit_code
 
       - name: prepare-target
         run: |
