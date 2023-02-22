@@ -47,10 +47,22 @@ jobs:
           sas-viya configuration configurations update --file PSGEL270-RACE/config/update_studio.json
 
       # Runs a set of commands using the runners shell
-      - name: import
+      - name: import-EGProjects
         run: |
           echo Import EG project to SAS Viya from the git repo
-          echo test, and deploy your project.
+          export SAS_CLI_PROFILE=${current_namespace}
+          export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
+          export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+          /opt/pyviyatools/loginviauthinfo.py
+          PSGEL270-RACE/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
+
+      - name: load-migration-data
+        run: |
+          echo "Loading migration data for the migration summary report"
+          kubectl create job loadimportdata-001 --from=cronjob/sas-import-data-loader
+          sleep 20
+          kubectl logs -f job/loadimportdata-001 | klog
+          kubectl delete job loadimportdata-001
 
       - name: validate
         run: |
