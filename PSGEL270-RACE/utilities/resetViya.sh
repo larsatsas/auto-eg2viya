@@ -1,5 +1,6 @@
 echo "Cleaning up the environment before setting up and importing content"
-export SSL_CERT_FILE=~/certs/server-cacerts.pem
+export SAS_CLI_PROFILE=${current_namespace}
+export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
 export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
 /opt/pyviyatools/loginviauthinfo.py
 

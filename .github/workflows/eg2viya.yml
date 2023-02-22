@@ -35,7 +35,6 @@ jobs:
       - name: prepare-target
         run: |
           echo Preparing target environment
-          #gel_setCurrentNamespace target
           export SAS_CLI_PROFILE=${current_namespace}
           export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
           export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
