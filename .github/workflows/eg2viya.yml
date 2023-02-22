@@ -26,11 +26,26 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
+      - name: cleanup-target
+        run: |
+          echo Preparing target environment
+          sh PSGEL270-RACE/utilities/resetViya.sh ||  exit_code=$?
+          if [ $exit_code -ne 0 ]; then echo $exit_code; fi;
+
       - name: prepare-target
         run: |
           echo Preparing target environment
-          whoami
-          pwd
+          gel_setCurrentNamespace target
+          export SAS_CLI_PROFILE=${current_namespace}
+          export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
+          export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+          /opt/pyviyatools/loginviauthinfo.py
+          # setup startup and autoexec for compute, batch and sas studio
+          echo "Configure startup and autoexec for compute and batch as well as fileshare in sas studio"
+          sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-startup_commands.json
+          sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-autoexec.json
+          sas-viya configuration configurations update --file PSGEL270-RACE/config/batch-autoexec.json
+          sas-viya configuration configurations update --file PSGEL270-RACE/config/update_studio.json
 
       # Runs a set of commands using the runners shell
       - name: import
