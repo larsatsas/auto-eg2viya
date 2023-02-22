@@ -30,9 +30,9 @@ jobs:
           echo Preparing target environment
           # all of /gelcorp
           # the egprojects that were imported
-          export SAS_CLI_PROFILE=target
-          export SSL_CERT_FILE=~/.certs/${current_namespace}_trustedcerts.pem
-          export REQUESTS_CA_BUNDLE=${SSL_CERT_FILE}
+          #export SAS_CLI_PROFILE=target
+          #export SSL_CERT_FILE=~/.certs/target_trustedcerts.pem
+          export REQUESTS_CA_BUNDLE=~/.certs/target_trustedcerts.pem
           /opt/pyviyatools/loginviauthinfo.py
           /opt/pyviyatools/deletecontent.py -f /Public/exported -i -q || exit_code=$?
           echo $exit_code
