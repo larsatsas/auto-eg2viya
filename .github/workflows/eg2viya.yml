@@ -17,14 +17,10 @@ on:
 jobs:
   # This workflow contains 3 jobs
   prepare-target:
-    # The type of runner that the job will run on
     runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
       - name: cleanup-target
         run: |
           echo Preparing target environment
@@ -33,7 +29,7 @@ jobs:
           # the egprojects that were imported
           /opt/pyviyatools/deletecontent.py -f /Public/exported -i -q || exit_code=$?
           echo $exit_code
-
+          
       - name: prepare-target
         run: |
           echo Preparing target environment
@@ -47,14 +43,8 @@ jobs:
   import:
     needs:
       - prepare-target
-    # The type of runner that the job will run on
     runs-on: self-hosted
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v3
-
-      # Runs a set of commands using the runners shell
       - name: import-EGProjects
         run: |
           echo Import EG project to SAS Viya from the git repo
@@ -64,12 +54,8 @@ jobs:
   validate:
     needs:
       - import
-    # The type of runner that the job will run on
     runs-on: self-hosted
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v3  
       - name: import-validation-data
         run: |
           # test data
