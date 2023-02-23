@@ -1,3 +1,6 @@
+libname EXPECTED '/gelcontent/gelcorp/expected';
+libname FINDATA '/gelcontent/gelcorp/finance/data';
+
 proc compare 
 	base=expected.productline 
 	compare=findata.productline    
