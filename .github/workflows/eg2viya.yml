@@ -35,10 +35,10 @@ jobs:
           echo Preparing target environment
           # setup startup and autoexec for compute, batch and sas studio
           echo "Configure startup and autoexec for compute and batch as well as fileshare in sas studio"
-          sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-startup_commands.json
-          sas-viya configuration configurations update --file PSGEL270-RACE/config/compute-autoexec.json
-          sas-viya configuration configurations update --file PSGEL270-RACE/config/batch-autoexec.json
-          sas-viya configuration configurations update --file PSGEL270-RACE/config/update_studio.json
+          sas-viya configuration configurations update --file viya-target/config/compute-startup_commands.json
+          sas-viya configuration configurations update --file viya-target/config/compute-autoexec.json
+          sas-viya configuration configurations update --file viya-target/config/batch-autoexec.json
+          sas-viya configuration configurations update --file viya-target/config/update_studio.json
 
   import:
     needs:
@@ -48,8 +48,8 @@ jobs:
       - name: import-EGProjects
         run: |
           echo Import EG project to SAS Viya from the git repo
-          chmod +x PSGEL270-RACE/utilities/importEGProjects
-          PSGEL270-RACE/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
+          chmod +x viya-target/utilities/importEGProjects
+          viya-target/utilities/importEGProjects --sas-viya-path /usr/bin/sas-viya --source-file "exported/list_of_Enterprise_Guide_Projects.csv" --root-folder "Public"
 
   validate:
     needs:
@@ -71,7 +71,7 @@ jobs:
         run: |
           echo Validate what we just imported
           # Generate SAS code from the imported EG job that turned into a flow, so that we can test it
-          /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i PSGEL270-RACE/config/Lookup_refresh.json -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
+          /opt/pyviyatools/callrestapi.py -m post -e /studioDevelopment/code/ -c "application/json" -i viya-target/config/Lookup_refresh.json -a "application/vnd.sas.code.generation.request+json" -o json | jq -r '.code' > code.sas
           sas-viya batch jobs submit-pgm --pgm-path code.sas --context default --watch-output --wait-log-list
           # test against expected results
-          sas-viya batch jobs submit-pgm --pgm-path PSGEL270-RACE/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
+          sas-viya batch jobs submit-pgm --pgm-path viya-target/flowsFromEG/testing/testLookup_Refresh.sas --context default --watch-output --wait-log-list
