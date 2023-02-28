@@ -1,24 +1,28 @@
 libname EXPECTED '/gelcontent/gelcorp/expected';
-libname FINDATA '/gelcontent/gelcorp/finance/data';
+libname ACTUAL '/gelcontent/gelcorp/finance/data';
+
 
 proc compare 
 	base=expected.productline 
-	compare=findata.productline    
+	compare=actual.PRODUCTLINE    
 	briefsummary;
+    id Product ProductLine;
 run;
 %let rcpl=&sysinfo;
 
 proc compare 
 	base=expected.LOOKUP_FACILITY_NAME 
-	compare=findata.LOOKUP_FACILITY_NAME    
+	compare=actual.LOOKUP_FACILITY_NAME    
 	briefsummary;
+    id FacilityID;
 run;
 %let rclfn=&sysinfo;
 
 proc compare 
 	base=expected.FACILITY_STATE 
-	compare=findata.FACILITY_STATE    
+	compare=actual.FACILITY_STATE    
 	briefsummary;
+    id FacilityID;
 run;
 %let rcfs=&sysinfo;
 
