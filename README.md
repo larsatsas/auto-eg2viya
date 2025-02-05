@@ -6,7 +6,7 @@ And as humans we are not always good at that – we get bored and sloppy, and mi
 
 So why not automate this and have a computer do this for us? With CICD and devops being a thing, doing migration through CICD seems to be a sensible way of attacking this. Also – many of the tools for migration are well suited for automation – most of them have command-line options.
 
-And as a CICD addict and true believer in all things agile, going cicd on migration makes a ton of sense.
+And as a CICD addict and true believer in all things agile, going CICD on migration makes a ton of sense.
 
 This repository have content and guidance on:
 
