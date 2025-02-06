@@ -1,7 +1,5 @@
 /* How about doing a change from a VSCode over web as my private github user - now in a new branch */
 
-%include "../../config/FinanceLibs.sas"
-
 proc compare 
 	base=expected.productline 
 	compare=actual.PRODUCTLINE    
