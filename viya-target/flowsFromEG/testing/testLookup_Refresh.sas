@@ -1,4 +1,4 @@
-/* Doing a symbolic change to this one */
+/* Doing a symbolic change to this one again */
 
 proc compare 
 	base=expected.productline 
