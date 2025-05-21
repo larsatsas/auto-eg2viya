@@ -1,5 +1,5 @@
 /* How about doing a change from a VSCode over web as my private github user - now in a new branch */
-/* Doing a symbolic change to this one, and a new one */
+/* Doing a symbolic change to this one */
 
 proc compare 
 	base=expected.productline 
