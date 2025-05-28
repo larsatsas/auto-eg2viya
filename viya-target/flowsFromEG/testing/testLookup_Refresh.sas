@@ -1,4 +1,5 @@
 /* Doing a symbolic change to this one again */
+/* After checking out my previous fix we got this to work */
 
 proc compare 
 	base=expected.productline 
