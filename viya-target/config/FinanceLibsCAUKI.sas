@@ -1,4 +1,4 @@
-/* Set up the home folder based on the environment */
+/* Set up the home folder based on the environment - testing a change */
 %let home_folder = %sysget(HOME);
 
 libname EXPECTED "&home_folder./EXPECTED";
