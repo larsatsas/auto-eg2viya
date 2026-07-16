@@ -1,0 +1,47 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: ODS Graphics is ON (width=640px, height=480px, format=SVG).
+NOTE: Library LENDFMT uses 1 concatenated paths.
+NOTE: Option FMTSEARCH changed to LENDFMT.
+NOTE: Library LEND uses 1 concatenated paths.
+NOTE: DATA Lend.LCLoanData
+
+NOTE: Processing inline DATALINES (25 lines)
+
+NOTE: Read 25 rows from DATALINES.
+NOTE: Wrote Lend.LCLoanData (25 rows, 17 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC CONTENTS data=Lend.LCLoanData
+
+NOTE: PROC CONTENTS completed: 25 observations, 17 variables
+NOTE: Option TITLE changed to Summary Statistics of Lending Club Loan Data.
+NOTE: PROC MEANS
+NOTE: PROC MEANS statement used.
+NOTE: Option TITLE changed to First 10 Rows of Lending Club Loan Data.
+NOTE: PROC PRINT data=Lend.LCLoanData
+
+NOTE: PROC PRINT completed: 10 observations printed, 17 variables
+NOTE: PROC FORMAT library=LENDFMT
+
+NOTE: FORMAT posneg defined (3 ranges).
+NOTE: FORMAT agegroup defined (5 ranges).
+NOTE: FORMAT fico defined (6 ranges).
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_creditpolicy.spec.json
+NOTE: ODS plot written: freq_default.spec.json
+NOTE: ODS plot written: freq_ficoscore.spec.json
+NOTE: ODS plot written: freq_purpose.spec.json
+NOTE: ODS plot written: freq_race.spec.json
+NOTE: ODS plot written: freq_gender.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: PROC SORT data=Lend.LCLoanData
+
+NOTE: Read 25 rows from Lend.LCLoanData.
+NOTE: Wrote Lend.LCLoanData (25 rows, 17 columns).
+NOTE: PROC SORT statement used.
+NOTE: Option TITLE changed to What is the relationship between FICO Score and Default?.
+NOTE: Option FOOTNOTE changed to NOTE: The distribution of borrowers who default is to the left of those who repay their loans..
+NOTE: PROC UNIVARIATE

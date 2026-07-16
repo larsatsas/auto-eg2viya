@@ -1,0 +1,20 @@
+{
+  "_captured_at": "2026-07-16T06:56:00Z",
+  "_captured_run_id": "r_1c9d7cbe7bb944d8ac51896e87cf7c6f",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: PROC COMPARE base=expected.productline compare=actual.PRODUCTLINE",
+    "NOTE:     - Equal:            5",
+    "NOTE: PROC COMPARE base=expected.FACILITY_STATE compare=actual.FACILITY_STATE",
+    "NOTE: Wrote _null_ (0 rows, 0 columns)."
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}
