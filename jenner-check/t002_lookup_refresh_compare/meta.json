@@ -1,0 +1,7 @@
+{
+  "bundle": "t002_lookup_refresh_compare",
+  "source_file": "viya-target/flowsFromEG/testing/testLookup_Refresh.sas",
+  "source_blob_sha": "d923dfbc273ccd84686c8346f95dda2dd523869b",
+  "source_commit": "75f10a627dda70b5e9a96fbfc4148bc57a40b65a",
+  "notes": "The CICD post-refresh validation step, unmodified in logic: three PROC COMPARE checks (productline, LOOKUP_FACILITY_NAME, FACILITY_STATE) between an EXPECTED libref and an ACTUAL libref, keyed exactly as the author wrote (Product/ProductLine, then FacilityID twice), followed by the same SYSINFO-driven ERROR/ABORT CANCEL gate used in the real pipeline. Upstream EXPECTED/ACTUAL point at /gelcontent paths populated from exported/data/*.sas7bdat by eg2viya.yml; since the runner ships script text only, both librefs are pointed at WORK and seeded with small matching mock datasets in the same column layout, so the bundle demonstrates the clean-refresh path the pipeline itself gates on."
+}

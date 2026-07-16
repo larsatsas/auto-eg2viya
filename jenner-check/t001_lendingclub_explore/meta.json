@@ -1,0 +1,7 @@
+{
+  "bundle": "t001_lendingclub_explore",
+  "source_file": "viya-target/LendingClubLoan.sas",
+  "source_blob_sha": "411b4c407e44656cc6636afaa57500e0d8011b02",
+  "source_commit": "75f10a627dda70b5e9a96fbfc4148bc57a40b65a",
+  "notes": "STEP 1 (load) + STEP 2 (explore) of the workshop's LendingClubLoan.sas, unmodified in logic: builds LCLoanData from LENDINGCLUBLOANDATA.csv, runs PROC CONTENTS/MEANS/PRINT, defines custom formats (posneg/agegroup/fico/...), PROC FREQ, PROC SORT, PROC UNIVARIATE by Default. The original INFILE read exported/data/LENDINGCLUBLOANDATA.csv from disk; since the runner ships only script text, a 25-row sample of that same file (same 17-column layout) is inlined via DATALINES/DSD instead. STEP 3-6 (Viya-only proc partition/forest/gradboost/astore, CAS-only) are out of scope for this bundle -- everything shipped here is standard SAS as the author wrote it."
+}

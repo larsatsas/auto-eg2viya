@@ -1,0 +1,9 @@
+The COMPARE Procedure
+Comparison of EXPECTED.PRODUCTLINE with ACTUAL.PRODUCTLINE
+Brief Comparison Summary: EXPECTED.PRODUCTLINE and ACTUAL.PRODUCTLINE compared equal. No unequal values were found.
+The COMPARE Procedure
+Comparison of EXPECTED.LOOKUP_FACILITY_NAME with ACTUAL.LOOKUP_FACILITY_NAME
+Brief Comparison Summary: EXPECTED.LOOKUP_FACILITY_NAME and ACTUAL.LOOKUP_FACILITY_NAME compared equal. No unequal values were found.
+The COMPARE Procedure
+Comparison of EXPECTED.FACILITY_STATE with ACTUAL.FACILITY_STATE
+Brief Comparison Summary: EXPECTED.FACILITY_STATE and ACTUAL.FACILITY_STATE compared equal. No unequal values were found.

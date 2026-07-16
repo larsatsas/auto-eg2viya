@@ -1,0 +1,21 @@
+{
+  "_captured_at": "2026-07-16T06:53:00Z",
+  "_captured_run_id": "r_b441095bc99e4452a3736892adea3774",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote Lend.LCLoanData (25 rows, 17 columns).",
+    "NOTE: PROC CONTENTS completed: 25 observations, 17 variables",
+    "NOTE: PROC PRINT completed: 10 observations printed, 17 variables",
+    "NOTE: FORMAT agegroup defined (5 ranges).",
+    "NOTE: PROC SORT statement used."
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

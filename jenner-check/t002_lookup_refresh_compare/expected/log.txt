@@ -1,0 +1,99 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: Library EXPECTED uses 1 concatenated paths.
+NOTE: Library ACTUAL uses 1 concatenated paths.
+NOTE: DATA expected.productline
+
+NOTE: Processing inline DATALINES (5 lines)
+
+NOTE: Read 5 rows from DATALINES.
+NOTE: Wrote expected.productline (5 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA actual.productline
+
+NOTE: Processing inline DATALINES (5 lines)
+
+NOTE: Read 5 rows from DATALINES.
+NOTE: Wrote actual.productline (5 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA expected.lookup_facility_name
+
+NOTE: Processing inline DATALINES (4 lines)
+
+NOTE: Read 4 rows from DATALINES.
+NOTE: Wrote expected.lookup_facility_name (4 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA actual.lookup_facility_name
+
+NOTE: Processing inline DATALINES (4 lines)
+
+NOTE: Read 4 rows from DATALINES.
+NOTE: Wrote actual.lookup_facility_name (4 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA expected.facility_state
+
+NOTE: Processing inline DATALINES (4 lines)
+
+NOTE: Read 4 rows from DATALINES.
+NOTE: Wrote expected.facility_state (4 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA actual.facility_state
+
+NOTE: Processing inline DATALINES (4 lines)
+
+NOTE: Read 4 rows from DATALINES.
+NOTE: Wrote actual.facility_state (4 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC COMPARE base=expected.productline compare=actual.PRODUCTLINE
+
+NOTE: PROC COMPARE Summary:
+NOTE:   Base observations:    5
+NOTE:   Compare observations: 5
+NOTE:   Matched observations: 5
+NOTE:     - Equal:            5
+NOTE:     - Unequal:          0
+NOTE:   Base only:            0
+NOTE:   Compare only:         0
+NOTE:   Variables compared:   0
+NOTE: PROC COMPARE base=expected.LOOKUP_FACILITY_NAME compare=actual.LOOKUP_FACILITY_NAME
+
+NOTE: PROC COMPARE Summary:
+NOTE:   Base observations:    4
+NOTE:   Compare observations: 4
+NOTE:   Matched observations: 4
+NOTE:     - Equal:            4
+NOTE:     - Unequal:          0
+NOTE:   Base only:            0
+NOTE:   Compare only:         0
+NOTE:   Variables compared:   1
+NOTE: PROC COMPARE base=expected.FACILITY_STATE compare=actual.FACILITY_STATE
+
+NOTE: PROC COMPARE Summary:
+NOTE:   Base observations:    4
+NOTE:   Compare observations: 4
+NOTE:   Matched observations: 4
+NOTE:     - Equal:            4
+NOTE:     - Unequal:          0
+NOTE:   Base only:            0
+NOTE:   Compare only:         0
+NOTE:   Variables compared:   1
+NOTE: DATA _null_
+
+
+NOTE: Wrote _null_ (0 rows, 0 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds

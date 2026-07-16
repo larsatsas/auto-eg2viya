@@ -1,0 +1,227 @@
+
+PROC CONTENTS
+-------------------------------------------------------------------------------
+
+Data Set Name: Lend.LCLoanData
+Observations:  25
+Variables:     17
+
+Variables (in alphabetical order):
+
+  #  Variable           Type    Len  Format   Label
+---  -----------------  ----  -----  -------  ----------------------------------------
+  1  Age                 Num      8  BEST32.  Age
+  2  CreditLineAge       Num      8  BEST32.  Length of Credit Line in Days
+  3  CreditPolicy       Char    200  $1.      Meets Lending Club Credit Underwriting Policy (0/1)
+  4  DebtIncRatio        Num      8  BEST32.  Debt to Income Ratio
+  5  Default            Char    200  $1.      Loan has not been Repaid
+  6  Delinquencies2Yrs   Num      8  BEST32.  Credit Delinquencies in the last 2 Years
+  7  FICOScore           Num      8  BEST32.  FICO Credit Score
+  8  Gender             Char    200  $6.      Gender
+  9  Inquiries6Mnths     Num      8  BEST32.  Credit Inquiries in the last 6 Months
+ 10  Installment         Num      8  BEST32.  Monthly Installment
+ 11  InterestRate        Num      8  BEST32.  Interest Rate
+ 12  LogAnnualInc        Num      8  BEST32.  Natural Log of Self Reported Annual Income
+ 13  PublicRecord       Char    200  $1.      Public Record
+ 14  Purpose            Char    200  $20.     Purpose of the Loan
+ 15  Race               Char    200  $10.     Race
+ 16  RevBalance          Num      8  BEST32.  Revolving Balance
+ 17  RevUtilization      Num      8  BEST32.  Revolving Utilitization
+
+-------------------------------------------------------------------------------
+
+                                      Summary Statistics of Lending Club Loan Data
+
+                                                  The MEANS Procedure
+
+ Variable           Label                                             N   N Miss             Mean          Minimum           Maximum          Std Dev
+ ----------------------------------------------------------------------------------------------------------------------------------------------------
+ InterestRate       Interest Rate                                    25        0        0.1151360        0.0859000         0.1884000        0.0226316
+ Installment        Monthly Installment                              25        0      264.3728000       64.1100000       837.6700000      196.4906907
+ LogAnnualInc       Natural Log of Self Reported Annual Income       25        0       10.9143367        9.3926619        12.6115378        0.6030653
+ DebtIncRatio       Debt to Income Ratio                             25        0       11.4584000        1.5500000        24.5700000        6.6038263
+ FICOScore          FICO Credit Score                                25        0      720.0000000      672.0000000       767.0000000       29.7909382
+ CreditLineAge      Length of Credit Line in Days                    25        0     3967.5033331     1320.0000000     10679.9583300     2278.5451070
+ RevBalance         Revolving Balance                                25        0     8848.0800000        0.0000000     23607.0000000     7376.9059510
+ RevUtilization     Revolving Utilitization                          25        0       38.8440000        0.0000000        76.1000000       23.8120082
+ Inquiries6Mnths    Credit Inquiries in the last 6 Months            25        0        1.0800000        0.0000000         4.0000000        1.1150486
+ Delinquencies2Yrs  Credit Delinquencies in the last 2 Years         25        0        0.0800000        0.0000000         1.0000000        0.2768875
+ Age                Age                                              25        0       38.3600000        2.0000000        91.0000000       24.0985477
+ ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                        First 10 Rows of Lending Club Loan Data
+
+
+  Obs  CreditPolicy               Purpose  InterestRate  Installment  LogAnnualInc  DebtIncRatio  FICOScore  CreditLineAge  RevBalance  RevUtilization  Inquiries6Mnths  Delinquencies2Yrs  PublicRecord  Default  Age        Race  Gender
+-----  ------------  --------------------  ------------  -----------  ------------  ------------  ---------  -------------  ----------  --------------  ---------------  -----------------  ------------  -------  ---  ----------  ------
+    1  1             all_other                   0.1008        80.77   11.08220409          1.55        697           4380        9743            62.9                1                  0  0             0         20  Hispanic    Female
+    2  1             educational                 0.1158        79.24   10.16585182         15.05        692    3450.958333         731             5.8                3                  1  0             1         42  White       Male
+    3  1             all_other                   0.1095       130.86   10.51867319          6.36        722           3690       15830            52.8                2                  0  0             0         54  Hispanic    Female
+    4  1             debt_consolidation          0.1183       497.01    11.0744205            11        732    2879.958333        8318            50.7                1                  0  0             0         91  White       Female
+    5  1             credit_card                 0.1158       115.55   10.46310334         14.47        702           2160        8716              51                0                  0  0             0         25  Black       Male
+    6  1             all_other                   0.1287       168.17   10.67359577         14.89        682    2429.958333       17123            75.8                3                  0  0             0          3  Hispanic    Female
+    7  1             all_other                   0.1158       660.27   12.61153775          6.93        762    10679.95833           0               0                1                  0  0             0         11  Black       Female
+    8  1             small_business              0.1884       438.93   10.81977828          12.6        712           3690       11957            43.5                2                  0  0             0         42  White       Female
+    9  1             small_business              0.1189       505.76   11.40756495          9.44        737    3029.958333        5137            24.2                0                  0  0             1         61  White       Female
+   10  1             educational                 0.1218        64.11   10.30895266          8.36        712    1349.958333         277            46.2                2                  0  0             0         81  White       Male
+
+... 15 more observations (showing 10 of 25)
+
+                                                   The FREQ Procedure
+
+Meets Lending Club Credit Underwriting Policy (0/1)    Frequency    Percent
+----------------------------------------------------------------------------
+1                                                             25    100.00
+
+Loan has not been Repaid    Frequency    Percent
+-------------------------------------------------
+0                                  21     84.00
+1                                   4     16.00
+
+FICO Credit Score      Frequency    Percent
+--------------------------------------------
+Good (670-739)                19     76.00
+Very Good (740-799)            6     24.00
+
+Purpose of the Loan    Frequency    Percent
+--------------------------------------------
+all_other                     10     40.00
+credit_card                    3     12.00
+debt_consolidation             6     24.00
+educational                    3     12.00
+major_purchase                 1      4.00
+small_business                 2      8.00
+
+Race        Frequency    Percent
+---------------------------------
+Asian               2      8.00
+Black               4     16.00
+Hispanic            8     32.00
+White              11     44.00
+
+Gender    Frequency    Percent
+-------------------------------
+Female           17     68.00
+Male              8     32.00
+                                What is the relationship between FICO Score and Default?
+
+                        Loan has not been Repaid=0
+
+                                                The UNIVARIATE Procedure
+                                       Variable:  FICOScore  (FICO Credit Score)
+
+                                                        Moments
+
+N                                 21    Sum Weights                       21
+Mean                      716.761905    Sum Observations        15052.000000
+Std Deviation              29.046350    Variance                  843.690476
+Skewness                    0.207868    Kurtosis                   -0.886831
+Uncorrected SS        10805574.000000    Corrected SS            16873.809524
+Coeff Variation             4.052441    Std Error Mean              6.338433
+
+          Basic Statistical Measures           
+
+Location              Variability              
+--------  ----------  -------------  ----------
+Mean      716.761905  Std Deviation   29.046350
+Median    712.000000  Variance       843.690476
+Mode      732.000000  Range           95.000000
+
+Quantiles (Definition 5)
+
+Quantile      Estimate
+----------  ----------
+0% Min      672.000000
+1%          672.000000
+5%          672.000000
+10%         682.000000
+25% Q1      697.000000
+50% Median  712.000000
+75% Q3      732.000000
+90%         762.000000
+95%         762.000000
+99%         767.000000
+100% Max    767.000000
+
+           Extreme Observations           
+
+Lowest                Highest             
+--------  ----------  --------  ----------
+Value     672.000000  Value     737.000000
+Value     672.000000  Value     752.000000
+Value     682.000000  Value     762.000000
+Value     687.000000  Value     762.000000
+Value     692.000000  Value     767.000000
+
+
+
+
+         Tests for Location          
+
+Test                Statistic   p Value
+------------------  ---------  --------
+Student's t         113.08187189         0
+Sign                     10.5  0.000000954
+Signed Rank               231  0.000059598
+
+
+                        Loan has not been Repaid=1
+
+                                                The UNIVARIATE Procedure
+                                       Variable:  FICOScore  (FICO Credit Score)
+
+                                                        Moments
+
+N                                  4    Sum Weights                        4
+Mean                      737.000000    Sum Observations         2948.000000
+Std Deviation              31.885211    Variance                 1016.666667
+Skewness                   -1.388176    Kurtosis                    1.500000
+Uncorrected SS        2175726.000000    Corrected SS             3050.000000
+Coeff Variation             4.326352    Std Error Mean             15.942605
+
+           Basic Statistical Measures           
+
+Location              Variability               
+--------  ----------  -------------  -----------
+Mean      737.000000  Std Deviation    31.885211
+Median    747.000000  Variance       1016.666667
+Mode               .  Range            70.000000
+
+Quantiles (Definition 5)
+
+Quantile      Estimate
+----------  ----------
+0% Min      692.000000
+1%          692.000000
+5%          692.000000
+10%         692.000000
+25% Q1      714.500000
+50% Median  747.000000
+75% Q3      759.500000
+90%         762.000000
+95%         762.000000
+99%         762.000000
+100% Max    762.000000
+
+           Extreme Observations           
+
+Lowest                Highest             
+--------  ----------  --------  ----------
+Value     692.000000  Value     692.000000
+Value     737.000000  Value     737.000000
+Value     757.000000  Value     757.000000
+Value     762.000000  Value     762.000000
+
+
+
+
+         Tests for Location          
+
+Test                Statistic   p Value
+------------------  ---------  --------
+Student's t         46.228328551  0.000022285
+Sign                        2     0.125
+Signed Rank                10  0.067889041
+
+
+NOTE: The distribution of borrowers who default is to the left of those who repay their loans.
